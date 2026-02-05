@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Fixed Navigation Menu</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 200vh; /* To enable scrolling */
+      background: #f4f4f4;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    nav.scrolled {
+      background: #222;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Menu */
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    ul li a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* Hover Effect */
+    ul li a:hover {
+      background: #ff9800;
+      color: #000;
+    }
+
+    /* Page Content */
+    .content {
+      margin-top: 120px;
+      padding: 40px;
+    }
+
+    .content h1 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Menu -->
+  <nav id="navbar">
+    <div class="logo">MyWebsite</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="content">
+    <h1>Scroll Down</h1>
+    <p>
+      This is an example of a fixed navigation menu. When you scroll the page,
+      the background color of the navigation bar changes. Hover over menu items
+      to see the hover effect.
+    </p>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
